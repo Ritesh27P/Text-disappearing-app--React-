@@ -6,7 +6,7 @@ function Input(props){
     const [text, setText] = useState("")
     const [time, setTime] = useState(0)
     const [istimerOn, setIsTimerOn] = useState(true)
-    const myApp = {}
+    let nIntervalId;
 
     const myStyle = {
         opacity: 0.5
@@ -29,7 +29,7 @@ function Input(props){
     function writingStopped(event){
         if(istimerOn){
             setIsTimerOn(false);
-            myApp.interId = setInterval(()=>{
+            nIntervalId = setInterval(()=>{
                 setTime((prevTime)=>{
                     return prevTime + 1;
                 })
@@ -42,8 +42,16 @@ function Input(props){
         setTime(0)
     }
 
+    function gameOver(){
+        setText("")
+        setTime(0)
+        clearInterval(nIntervalId)
+        
+    }
+
     return <div className="message">
-                {time > 6 ? setText("") : ""}
+                {time > 6 ? gameOver() : ""}
+
                 <h2 style={time>3 ? myStyle : {}}>
                     {text}
                     <TextInput text={text}
