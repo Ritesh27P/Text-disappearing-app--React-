@@ -46,6 +46,7 @@ function Input(props){
         setText("")
         setTime(0)
         clearInterval(nIntervalId)
+        nIntervalId = null;
         
     }
 
