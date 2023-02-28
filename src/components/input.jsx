@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import TextInput from "../inputText";
 
+
 function Input(props){
 
     const [text, setText] = useState("")
     const [time, setTime] = useState(0)
     const [istimerOn, setIsTimerOn] = useState(true)
     let nIntervalId;
-
-    const myStyle = {
-        opacity: 0.5
-    }
 
     const myInputStyle = {
         maxWidth: "2px",
@@ -47,13 +44,12 @@ function Input(props){
         setTime(0)
         clearInterval(nIntervalId)
         nIntervalId = null;
-        
     }
 
     return <div className="message">
                 {time > 6 ? gameOver() : ""}
 
-                <h2 style={time>3 ? myStyle : {}}>
+                <h2>
                     {text}
                     <TextInput text={text}
                                 startedWriting={startedWriting}
@@ -62,6 +58,9 @@ function Input(props){
                                 style={myInputStyle}
                     />
                 </h2>
+                <form action="/gameOver">
+                    <input type="submit" value="End game" />
+                </form>
             </div>
 }
 
