@@ -11,16 +11,15 @@ const router = createBrowserRouter([
   {path: "/", element:<App />},
   {path: "/gameOver", element:<GameOver />}
 ])
-
 root.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
 
   <React.StrictMode>
       <RouterProvider router={router} />
   </React.StrictMode>
   
 );
+
+
+
 
 reportWebVitals();

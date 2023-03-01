@@ -58,9 +58,11 @@ function Input(props){
                                 style={myInputStyle}
                     />
                 </h2>
-                <form action="/gameOver">
-                    <input type="submit" value="End game" />
-                </form>
+                <div>
+      <form action="/gameOver">
+        <input type="submit" value="End game" class="end"/>
+      </form>
+    </div>
             </div>
 }
 
